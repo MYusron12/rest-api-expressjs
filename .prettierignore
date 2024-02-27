@@ -1,5 +1,5 @@
-eslint.json
-prettierrc.json
+.eslint.json
+.prettierrc.json
 package.json
 package-lock.json
 tsconfig.json
