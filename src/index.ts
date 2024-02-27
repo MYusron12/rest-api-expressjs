@@ -7,4 +7,6 @@ app.use('/', (req: Request, res: Response, next: NextFunction) => {
   res.status(200).send({ data: 'Hello World Typescript' })
 })
 
-app.listen(port, () => { console.log(`Server is listening on port ${port}`) })
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`)
+})
