@@ -7,7 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx tsc -w",
     "dev": "npx nodemon",
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "check-types": "tsc --prety --noEmit",
+    "check-format": "prettier ---check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js"
+  },
+  "husky":{
+    "hooks":{
+      "pre-commit":"npx pretty-quick --staged ng lint ng test",
+      "pre-push": "ng build --aot true"
+    }
   },
   "author": "Yusron",
   "license": "ISC",
@@ -23,7 +34,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^5.0.0",
+    "husky": "^9.0.11",
     "prettier": "3.2.5",
+    "pretty-quick": "^4.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
