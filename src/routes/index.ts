@@ -1,7 +1,7 @@
-import { Application, Router } from "express"
-import { PeopleRouter } from "./people"
-import { CarRouter } from "./car"
-import { ProductRouter } from "./product"
+import { Application, Router } from 'express'
+import { PeopleRouter } from './people'
+import { CarRouter } from './car'
+import { ProductRouter } from './product'
 
 const _routes: Array<[string, Router]> = [
   ['/people', PeopleRouter],
@@ -12,6 +12,6 @@ const _routes: Array<[string, Router]> = [
 export const routes = (app: Application) => {
   _routes.forEach((route) => {
     const [url, router] = route
-    app.use(url,router)
+    app.use(url, router)
   })
 }
