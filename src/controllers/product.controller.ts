@@ -21,3 +21,39 @@ export const createProduct = (req: Request, res: Response) => {
     data: value
   })
 }
+export const getProduct = (req: Request, res: Response) => {
+  const products = [
+    { name: 'Sepatu', price: 200000 },
+    { name: 'Kaos', price: 100000 }
+  ]
+  const {
+    params: { name }
+  } = req
+  if (name) {
+    const filterProduct = products.filter((product) => {
+      if (product.name === name) {
+        return product
+      }
+    })
+    if (filterProduct.length === 0) {
+      logger.info('Data not found')
+      return res.status(404).send({
+        status: false,
+        statusCode: 404,
+        data: {}
+      })
+    }
+    logger.info('Success get product')
+    return res.status(200).send({
+      status: true,
+      statusCode: 200,
+      data: filterProduct[0]
+    })
+  }
+  logger.info('Success get product')
+  return res.status(200).send({
+    status: true,
+    statusCode: 200,
+    data: products
+  })
+}
