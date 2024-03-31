@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 
-// encode 
+// encode
 export const hashing = (password: string) => {
-  return bcrypt.hashSync(password,10)
+  return bcrypt.hashSync(password, 10)
 }

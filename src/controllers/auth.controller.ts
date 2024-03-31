@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
-import { createUserValidation } from "../validations/auth.validation";
-import { v4 as uuidv4 } from "uuid";
-import { logger } from "../utils/logger";
-import { hashing } from "../utils/hashing";
-import { createUser } from "../services/auth.service";
+import { Request, Response } from 'express'
+import { createUserValidation } from '../validations/auth.validation'
+import { v4 as uuidv4 } from 'uuid'
+import { logger } from '../utils/logger'
+import { hashing } from '../utils/hashing'
+import { createUser } from '../services/auth.service'
 
 export const registerUser = async (req: Request, res: Response) => {
   req.body.user_id = uuidv4()

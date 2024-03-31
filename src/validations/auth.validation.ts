@@ -9,5 +9,5 @@ export const createUserValidation = (payload: UserType) => {
     password: Joi.string().required(),
     role: Joi.string().allow('', null)
   })
-  return schema.validate(payload)
+  return schema.validate(payload) 
 }
