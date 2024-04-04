@@ -9,5 +9,13 @@ export const createUserValidation = (payload: UserType) => {
     password: Joi.string().required(),
     role: Joi.string().allow('', null)
   })
-  return schema.validate(payload) 
+  return schema.validate(payload)
+}
+
+export const createSessionValidation = (payload: UserType) => {
+  const schema = Joi.object({
+    email: Joi.string().required(),
+    password: Joi.string().required()
+  })
+  return schema.validate(payload)
 }
