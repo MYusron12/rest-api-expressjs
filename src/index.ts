@@ -7,6 +7,8 @@ import cors from 'cors'
 // connect DB
 import './utils/connectDB'
 
+import deserializeToken from './middleware/deserializedToken'
+
 const app: Application = express()
 const port: number = 4000
 
@@ -20,6 +22,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', '*')
   next()
 })
+
+app.use(deserializeToken)
 
 routes(app)
 
