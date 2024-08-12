@@ -53,7 +53,7 @@ export const createSession = async (req: Request, res: Response) => {
     const accessToken = signJWT({ ...user }, { expiresIn: '1d' })
     const refreshToken = signJWT({ ...user }, { expiresIn: '1y' })
     return res.status(200).send({
-      status: false,
+      status: true,
       statusCode: 200,
       message: 'Login Success',
       data: { accessToken, refreshToken }
