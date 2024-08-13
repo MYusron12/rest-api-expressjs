@@ -8,7 +8,7 @@ export const createPasienValidation = (payload: PasienType) => {
     tanggal_lahir: Joi.date().iso().required(),
     jenis_kelamin: Joi.string().valid('Laki-laki', 'Perempuan').required(),
     alamat: Joi.string().required(),
-    nomor_telepon: Joi.string().pattern(/^[0-9]{10,13}$/).required(), // Format telepon yang umum
+    nomor_telepon: Joi.string().pattern(/^[0-9]{10,15}$/).required(), // Format telepon yang umum
     email: Joi.string().email().required(),
     nomor_identitas: Joi.string().required(),
     riwayat_medis: Joi.string().allow('', null),
