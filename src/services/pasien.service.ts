@@ -4,11 +4,11 @@ import Pasien from '../types/pasien.type'
 
 // Menambahkan pasien ke database
 export const addPasienToDB = async (payload: Pasien) => {
+  const existingPasien = await pasienModel.findOne({ email: payload.email })
+  if (existingPasien) {
+    throw new Error('Email already exists.')
+  }
   try {
-    const existingPasien = await pasienModel.findOne({ email: payload.email })
-    if (existingPasien) {
-      throw new Error('Email already exists.')
-    }
     return await pasienModel.create(payload)
   } catch (error) {
     logger.info('Cannot add data to DB')
