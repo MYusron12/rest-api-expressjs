@@ -27,7 +27,7 @@ export const updatePasienValidation = (payload: Partial<PasienType>) => {
     tanggal_lahir: Joi.date().iso().allow('', null),
     jenis_kelamin: Joi.string().valid('Laki-laki', 'Perempuan').allow('', null),
     alamat: Joi.string().allow('', null),
-    nomor_telepon: Joi.string().pattern(/^[0-9]{10,13}$/).allow('', null),
+    nomor_telepon: Joi.string().allow('', null),
     email: Joi.string().email().allow('', null),
     nomor_identitas: Joi.string().allow('', null),
     riwayat_medis: Joi.string().allow('', null),
