@@ -13,6 +13,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const createPasien = async (req: Request, res: Response) => {
   req.body.id_pasien = uuidv4() // Menggunakan uuid untuk ID pasien
   const { error, value } = createPasienValidation(req.body)
+  console.log(error);
   if (error) {
     logger.error('ERR: pasien - create = ', error.details[0].message)
     return res.status(422).send({
