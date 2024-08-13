@@ -56,7 +56,7 @@ export const createSession = async (req: Request, res: Response) => {
       status: true,
       statusCode: 200,
       message: 'Login Success',
-      data: { accessToken, refreshToken }
+      data: { accessToken, refreshToken,user }
     })
   } catch (error: any) {
     logger.error('ERR: auth - create session = ', error.message)
